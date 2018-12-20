@@ -4,12 +4,11 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 25px;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +19,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.App .render-container canvas {
+  height: 100vh !important;
+  width: 100vw !important;
 }
 
 @keyframes App-logo-spin {
