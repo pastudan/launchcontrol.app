@@ -1,12 +1,11 @@
 .App {
   text-align: center;
+  background: radial-gradient(circle, #c3e8ff 0%, #5486b4 100%, #171947 100%);
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 25px;
 }
-
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -16,21 +15,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
+.App .render-container {
+  display: flex;
+}
 .App .render-container canvas {
   height: 100vh !important;
   width: 100vw !important;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

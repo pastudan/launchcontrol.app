@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import * as THREE from 'three'
+import earthTexture from './img/earth-texture-8k.jpg'
+
+const EARTH_RADIUS = 6371
+const SUN_RADIUS = 695508
+const GEOSTATIONARY_ALTITUDE = 35786
+const SUN_EARTH_DIST = 149600000
 
 class App extends Component {
   state = {
@@ -11,41 +17,61 @@ class App extends Component {
   componentDidMount() {
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
-      75,
+      20,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      500000
     )
+    camera.position.z = GEOSTATIONARY_ALTITUDE
+    // camera.position.y = 15000
+    camera.position.x = -200000
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setSize(window.innerWidth * 2, window.innerHeight * 2)
+    renderer.setClearColor(0x000000, 0.0)
     this.renderContainer.appendChild(renderer.domElement)
 
-    this.setState({ renderer: renderer.domElement })
-
-    // const geometry = new THREE.BoxGeometry(1, 1, 1)
-    // const material = new THREE.MeshBasicMaterial()
-    // const cube = new THREE.Mesh(geometry, material)
-    // scene.add(cube)
-
-    var geometry = new THREE.SphereGeometry(1, 32, 32)
-    var material = new THREE.MeshPhongMaterial()
-    var earthMesh = new THREE.Mesh(geometry, material)
+    // add Earth
+    const earthGeometry = new THREE.SphereGeometry(EARTH_RADIUS, 64, 64)
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      map: THREE.ImageUtils.loadTexture(earthTexture)
+    })
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial)
     scene.add(earthMesh)
 
-    camera.position.z = 5
+    const moonGlow = new THREE.Mesh(sphereGeom.clone(), customMaterial.clone())
+    moonGlow.position = moon.position
+    moonGlow.scale.multiplyScalar(1.2)
+    scene.add(moonGlow)
+
+    //
+    const ambLight = new THREE.AmbientLight(0xaaaaaa)
+    scene.add(ambLight)
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1)
+    scene.add(dirLight)
 
     function animate() {
       // cube.rotation.x += 0.01
-      earthMesh.rotation.y += 0.01
+      earthMesh.rotation.y += 0.002
+      dirLight.position.set(
+        camera.position.x - 15000,
+        camera.position.y + 15000,
+        camera.position.z - 15000
+      )
+
+      if (camera.position.x < 0) {
+        camera.position.x += 1000
+        camera.lookAt(0, 0, 0)
+      }
+
       requestAnimationFrame(animate)
+      renderer.clear()
       renderer.render(scene, camera)
     }
     animate()
   }
 
   render() {
-    const { renderer } = this.state
     return (
       <div className="App">
         <div className="render-container" ref={node => (this.renderContainer = node)} />
