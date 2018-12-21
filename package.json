@@ -6,7 +6,9 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.1",
-    "three": "^0.99.0"
+    "three": "^0.99.0",
+    "three-gltf-loader": "^1.99.1",
+    "three-orbit-controls": "^82.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
