@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iss-api
+spec:
+  selector:
+    matchLabels:
+      app: iss-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: iss-api
+    spec:
+      terminationGracePeriodSeconds: 15
+      containers:
+        - name: api
+          image: pastudan/iss-api
+          imagePullPolicy: Always
+          command: ['node', 'index.js']
+          ports:
+            - name: http-ports
+              containerPort: 8000
+          resources:
+            requests:
+              cpu: 1m
+              memory: 32Mi
+            limits:
+              cpu: 10m
+              memory: 32Mi
