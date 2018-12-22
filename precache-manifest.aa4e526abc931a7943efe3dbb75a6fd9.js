@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/spacex-tracker/static/js/runtime~main.a9bfa0c0.js"
   },
   {
-    "revision": "018f84e84b47f2347e4c",
-    "url": "/spacex-tracker/static/js/main.018f84e8.chunk.js"
+    "revision": "f35ac0c87079e525b5e7",
+    "url": "/spacex-tracker/static/js/main.f35ac0c8.chunk.js"
   },
   {
     "revision": "77f2c650e12686c793e3",
     "url": "/spacex-tracker/static/js/1.77f2c650.chunk.js"
   },
   {
-    "revision": "018f84e84b47f2347e4c",
+    "revision": "f35ac0c87079e525b5e7",
     "url": "/spacex-tracker/static/css/main.e6da3615.chunk.css"
   },
   {
-    "revision": "8a5ff378b9bdbde60fb4dbcbeb33358d",
+    "revision": "ba42ba50d5b239ad62c09859de047b27",
     "url": "/spacex-tracker/index.html"
   }
 ];
