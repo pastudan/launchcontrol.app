@@ -64,6 +64,9 @@ class App extends Component {
       camera.updateProjectionMatrix()
     }
     window.addEventListener('resize', resizeCanvas, false)
+    document.body.addEventListener('touchmove', function(e) {
+      e.preventDefault()
+    })
 
     // Earth
     const texture = THREE.ImageUtils.loadTexture(earthTexture)
@@ -91,7 +94,7 @@ class App extends Component {
     const geometry = new THREE.BufferGeometry().setFromPoints(points)
     const material = new THREE.LineDashedMaterial({
       color: 0xff4444,
-      linewidth: 50,
+      linewidth: 3,
       scale: 1,
       dashSize: 0.1,
       gapSize: 0.07
@@ -103,7 +106,7 @@ class App extends Component {
 
     // ISS
     const issGeometry = new THREE.SphereGeometry(0.2, 40, 40)
-    const issMaterial = new THREE.MeshPhongMaterial()
+    const issMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 })
     const issMesh = new THREE.Mesh(issGeometry, issMaterial)
     scene.add(issMesh)
     function updateIss() {
