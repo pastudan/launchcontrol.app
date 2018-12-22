@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import { degToRad, latToPolar, ISS_ORBIT_RADIUS } from '../util'
-import { scene } from '../setup'
 
 const issGeometry = new THREE.SphereGeometry(0.02, 40, 40)
 const issMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 })

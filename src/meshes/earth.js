@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import earthTexture from '../img/earth-texture-8k.jpg'
 import { EARTH_RADIUS } from '../util'
-import { camera } from '../setup'
 
 // Earth
 const texture = THREE.ImageUtils.loadTexture(earthTexture)

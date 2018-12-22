@@ -1,7 +1,5 @@
 import * as THREE from 'three'
-import earthTexture from '../img/earth-texture-8k.jpg'
 import { EARTH_RADIUS } from '../util'
-import { camera } from '../setup'
 
 // Equator
 const curve = new THREE.EllipseCurve(

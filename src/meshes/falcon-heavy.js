@@ -1,8 +1,7 @@
-import * as THREE from 'three'
 import GLTFLoader from 'three-gltf-loader'
 import { degToRad, latToPolar, EARTH_RADIUS } from '../util'
 
-import { scene, camera } from '../setup'
+import { scene } from '../setup'
 
 // Falcon Heavy
 const loader = new GLTFLoader()
