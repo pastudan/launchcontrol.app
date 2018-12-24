@@ -19,8 +19,8 @@ spec:
     spec:
       terminationGracePeriodSeconds: 15
       containers:
-        - name: iss-api
-          image: pastudan/iss-api
+        - name: spacexapi
+          image: pastudan/spacexapi
           imagePullPolicy: Always
           command: ['node', 'index.js']
           ports:
@@ -29,7 +29,7 @@ spec:
           resources:
             requests:
               cpu: 1m
-              memory: 32Mi
+              memory: 64Mi
             limits:
               cpu: 10m
-              memory: 32Mi
+              memory: 64Mi
