@@ -3,6 +3,7 @@ import './App.css'
 import { renderer } from './setup'
 import Telemetry from './Telemetry'
 import ToggleIss from './ToggleIss'
+import Mission from './Mission'
 
 class App extends Component {
   state = {
@@ -21,6 +22,7 @@ class App extends Component {
         <div className="controls">
           <ToggleIss />
           <Telemetry />
+          <Mission />
         </div>
       </div>
     )
