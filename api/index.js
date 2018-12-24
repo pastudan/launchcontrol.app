@@ -9,6 +9,10 @@ app.get('/', function(req, res) {
   res.send('OK')
 })
 
+const CACHE_FREQUENCY = 60 // cache every minute
+const CACHE_LENGTH = 184 // store ~2 full orbits worth if ISS data
+
+let updatesSinceCache = 0
 const history = []
 function poll() {
   request(`http://api.open-notify.org/iss-now.json`, (err, res, body) => {
@@ -18,8 +22,14 @@ function poll() {
 
     try {
       const { latitude, longitude } = JSON.parse(body).iss_position
-      history.push([latitude, longitude])
-      if (history.length > 20000) {
+
+      updatesSinceCache++
+      if (updatesSinceCache >= CACHE_FREQUENCY) {
+        history.push([latitude, longitude])
+        updatesSinceCache = 0
+      }
+
+      if (history.length > CACHE_LENGTH) {
         history.shift()
       }
 
@@ -33,3 +43,5 @@ io.on('connect', socket => {
 })
 
 setInterval(poll, 1000)
+
+//TODO use https://github.com/shahar603/SpaceXtract to get live telemetry data and feed via websockets
