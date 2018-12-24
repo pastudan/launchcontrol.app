@@ -6,7 +6,12 @@ const missionTime = 240
 class Mission extends Component {
   state = {
     missionName: 'Iridium 8',
-    phases: [{ name: 'foo', time: 0 }, { name: 'bar', time: 0.3 }, { name: 'baz', time: 1 }],
+    phases: [
+      { name: 'liftoff', time: 0 },
+      { name: 'entry burn', time: 0.3 },
+      { name: 'landing', time: 0.85 },
+      { name: 'deploy', time: 1 }
+    ],
     elapsedTime: 0
   }
 
@@ -31,11 +36,13 @@ class Mission extends Component {
             <div className="phases">
               {phases.map(({ name, time }, index) => (
                 <div
-                  className={`phase ${index % 2 === 0 ? 'top' : 'bottom'}`}
-                  style={{ left: time * 100 + '%' }}
-                >
-                  {name}
-                </div>
+                  key={name}
+                  phase={name}
+                  className={`phase ${index % 2 === 0 ? 'top' : 'bottom'} ${
+                    elapsedTime / missionTime > time ? 'complete' : 'pending'
+                  }`}
+                  style={{ left: `${time * 100}%` }}
+                />
               ))}
             </div>
           </div>
