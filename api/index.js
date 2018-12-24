@@ -1,5 +1,13 @@
+const app = require('express')()
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
 const request = require('request')
-const io = require('socket.io')(8000)
+
+server.listen(8000)
+
+app.get('/', function(req, res) {
+  res.send('OK')
+})
 
 const history = []
 function poll() {

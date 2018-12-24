@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: iss-api
+  name: spacexapi
 spec:
   selector:
     matchLabels:
-      app: iss-api
+      app: spacexapi
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 2
       maxUnavailable: 0
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
-        app: iss-api
+        app: spacexapi
     spec:
       terminationGracePeriodSeconds: 15
       containers:
-        - name: api
+        - name: iss-api
           image: pastudan/iss-api
           imagePullPolicy: Always
           command: ['node', 'index.js']
           ports:
-            - name: http-ports
+            - name: http-port
               containerPort: 8000
           resources:
             requests:

@@ -8,7 +8,7 @@ const loader = new GLTFLoader()
 
 export let fhMesh
 loader.load(
-  '/falcon-heavy.glb',
+  'falcon-heavy.glb',
 
   function(gltf) {
     fhMesh = gltf.scene.children[0]

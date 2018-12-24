@@ -2,7 +2,7 @@ FROM node:10-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock iss-api/index.js ./
+COPY package.json yarn.lock api/index.js ./
 
 RUN yarn install --production && \
     yarn cache clean && \
