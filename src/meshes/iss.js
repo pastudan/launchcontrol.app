@@ -12,14 +12,13 @@ export const issPathMesh = new THREE.Line(issPathGeometry, issPathMaterial)
 
 let history = []
 
-const socket = socketioClient('wss://iss-api-api-8000--pastudan.kubesail.io', {
+const socket = socketioClient('wss://spacexapi-spacexapi-8000--pastudan.kubesail.io', {
   transports: ['websocket']
 })
 
 socket.on('history', msg => (history = msg))
 socket.on('update', ([latitude, longitude]) => {
   history.push([latitude, longitude])
-  //   history.shift()
 
   issMesh.position.setFromSphericalCoords(
     ISS_ORBIT_RADIUS,
@@ -35,8 +34,6 @@ socket.on('update', ([latitude, longitude]) => {
         degToRad(longitude)
       )
     )
-
-    console.log({ cartesianHistory })
 
     const curve = new THREE.CatmullRomCurve3(cartesianHistory)
     const points = curve.getPoints(500)

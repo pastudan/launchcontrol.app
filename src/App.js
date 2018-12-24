@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './App.css'
 import { renderer } from './setup'
+import Telemetry from './Telemetry'
+import ToggleIss from './ToggleIss'
 
 class App extends Component {
   state = {
@@ -16,6 +18,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="render-container" ref={node => (this.renderContainer = node)} />
+        <div className="controls">
+          <ToggleIss />
+          <Telemetry />
+        </div>
       </div>
     )
   }

@@ -3,7 +3,7 @@ import earthTexture from '../img/earth-texture-8k.jpg'
 import { EARTH_RADIUS } from '../util'
 
 // Earth
-const texture = THREE.ImageUtils.loadTexture(earthTexture)
+const texture = new THREE.TextureLoader().load(earthTexture)
 texture.offset = new THREE.Vector2(0.25, 0)
 texture.wrapS = THREE.RepeatWrapping
 const earthGeometry = new THREE.SphereGeometry(EARTH_RADIUS, 64, 64)

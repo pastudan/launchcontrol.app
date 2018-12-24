@@ -1,0 +1,40 @@
+.Telemetry {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  color: white;
+  background: linear-gradient(to right, var(--telemetryBackgroundDark), var(--telemetryBackground));
+  width: 250px;
+}
+
+.Telemetry .skew {
+  height: 34px;
+  width: 40px;
+  margin-left: -10px;
+  box-shadow: 8px 0 10px -4px rgb(6, 55, 116);
+  background: var(--telemetryBackgroundOpaque);
+  transform: skew(30deg);
+  flex: 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom right,
+    var(--telemetryBackgroundOpaque),
+    var(--telemetryBackgroundOpaque) 65%,
+    var(--telemetryBackground)
+  );
+}
+.Telemetry .skew span {
+  transform: skew(-30deg);
+}
+
+.Telemetry .time {
+  flex: 0 1 100%;
+  text-align: left;
+  padding-left: 20px;
+}

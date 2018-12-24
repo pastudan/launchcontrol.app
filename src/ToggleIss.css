@@ -1,0 +1,15 @@
+.ToggleIss {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 7px 15px;
+  background: var(--telemetryBackgroundDisabled);
+  color: #99c4e3;
+  transition: 400ms all;
+  cursor: pointer;
+}
+
+.ToggleIss.tracking {
+  background: var(--telemetryBackground);
+  color: white;
+}

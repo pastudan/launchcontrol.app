@@ -17,3 +17,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root {
+  --telemetryBackground: rgba(10, 99, 164, 0.85);
+  --telemetryBackgroundOpaque: rgb(55, 134, 196);
+  --telemetryBackgroundDark: rgb(4, 99, 166, 0.8);
+  --telemetryBackgroundDisabled: rgba(10, 99, 164, 0.25);
+}
