@@ -17,7 +17,6 @@ spec:
       labels:
         app: spacexapi
     spec:
-      terminationGracePeriodSeconds: 15
       containers:
         - name: spacexapi
           image: pastudan/spacexapi
