@@ -1,14 +1,14 @@
 {
-  "main.css": "/spacex-tracker/static/css/main.e6da3615.chunk.css",
-  "main.js": "/spacex-tracker/static/js/main.f35ac0c8.chunk.js",
-  "main.js.map": "/spacex-tracker/static/js/main.f35ac0c8.chunk.js.map",
-  "static/js/1.77f2c650.chunk.js": "/spacex-tracker/static/js/1.77f2c650.chunk.js",
-  "static/js/1.77f2c650.chunk.js.map": "/spacex-tracker/static/js/1.77f2c650.chunk.js.map",
+  "main.css": "/spacex-tracker/static/css/main.4b9c1924.chunk.css",
+  "main.js": "/spacex-tracker/static/js/main.9a5dfaa8.chunk.js",
+  "main.js.map": "/spacex-tracker/static/js/main.9a5dfaa8.chunk.js.map",
+  "static/js/1.05c97539.chunk.js": "/spacex-tracker/static/js/1.05c97539.chunk.js",
+  "static/js/1.05c97539.chunk.js.map": "/spacex-tracker/static/js/1.05c97539.chunk.js.map",
   "runtime~main.js": "/spacex-tracker/static/js/runtime~main.a9bfa0c0.js",
   "runtime~main.js.map": "/spacex-tracker/static/js/runtime~main.a9bfa0c0.js.map",
   "static/media/earth-texture-8k.jpg": "/spacex-tracker/static/media/earth-texture-8k.9499217d.jpg",
-  "static/css/main.e6da3615.chunk.css.map": "/spacex-tracker/static/css/main.e6da3615.chunk.css.map",
+  "static/css/main.4b9c1924.chunk.css.map": "/spacex-tracker/static/css/main.4b9c1924.chunk.css.map",
   "index.html": "/spacex-tracker/index.html",
-  "precache-manifest.aa4e526abc931a7943efe3dbb75a6fd9.js": "/spacex-tracker/precache-manifest.aa4e526abc931a7943efe3dbb75a6fd9.js",
+  "precache-manifest.40edd1080ad09e0891db0604d344fac4.js": "/spacex-tracker/precache-manifest.40edd1080ad09e0891db0604d344fac4.js",
   "service-worker.js": "/spacex-tracker/service-worker.js"
 }
