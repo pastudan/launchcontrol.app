@@ -9,21 +9,86 @@
   color: white;
 }
 
-.Mission .name {
+.Mission .current {
   display: flex;
   align-items: center;
   justify-content: center;
   background: black;
   transform: skew(30deg);
-  padding: 6px 30px 6px 50px;
+  padding: 6px 30px 6px 35px;
   margin-left: -20px;
+  cursor: pointer;
 }
 
-.Mission .name h1 {
+.Mission .current h1 {
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   transform: skew(-30deg);
+}
+.Mission .current .change {
+  font-size: 10px;
+  transform: skew(-30deg);
+  width: 50px;
+  line-height: 10px;
+  margin-right: 15px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.Mission .current:hover .change {
+  color: white;
+}
+
+.Mission .selector {
+  height: 0;
+  transition: 400ms height;
+  background: black;
+  width: 400px;
+  text-align: left;
+  overflow-y: scroll;
+}
+.Mission.selector-open .selector {
+  height: calc(100vh - 150px);
+}
+
+.Mission .selector h2 {
+  font-weight: bold;
+  padding: 10px 14px 10px 10px;
+  display: flex;
+  align-items: center;
+}
+.Mission .selector h2:after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  margin-left: 10px;
+  background: white;
+  display: block;
+}
+.Mission .selector ul {
+  padding: 0 5px;
+}
+.Mission .selector li {
+  padding: 3px;
+  cursor: pointer;
+}
+.Mission .selector li.selected {
+  background: var(--telemetryBackgroundDark);
+}
+.Mission .selector li:hover {
+  background: var(--telemetryBackgroundOpaque);
+}
+.Mission .selector li span {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.Mission .selector li {
+  font-weight: bold;
 }
 
 .Mission .progress {
@@ -97,8 +162,8 @@
 }
 
 .Mission .bar .phase.top:after {
-  bottom: 14px;
+  bottom: 15px;
 }
 .Mission .bar .phase.bottom:after {
-  top: 14px;
+  top: 15px;
 }

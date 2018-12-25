@@ -5,6 +5,7 @@ const missionTime = 240
 
 class Mission extends Component {
   state = {
+    missionSelectorOpen: false,
     missionName: 'Iridium 8',
     phases: [
       { name: 'liftoff', time: 0 },
@@ -20,15 +21,117 @@ class Mission extends Component {
   }
 
   render() {
-    const { missionName, phases, elapsedTime } = this.state
+    const { missionName, phases, elapsedTime, selectorOpen } = this.state
 
     const progressWidth = (elapsedTime / missionTime) * 100 + '%'
 
     return (
-      <div className="Mission">
-        <div className="name">
+      <div className={`Mission ${selectorOpen ? 'selector-open' : ''}`}>
+        <div className="current" onClick={() => this.setState({ selectorOpen: !selectorOpen })}>
+          <div className="change">change mission</div>
           <h1>{missionName}</h1>
           <div className="skew" />
+        </div>
+        <div className="selector">
+          <h2>2017</h2>
+          <ul>
+            <li>
+              <span>Jan 27</span>Iridium 6
+            </li>
+            <li>
+              <span>Mar 6</span>SES-11
+            </li>
+          </ul>
+          <h2>2018</h2>
+          <ul>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Dec 23</span>GPS III-B
+            </li>
+          </ul>
+          <h2>2019</h2>
+          <ul>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li className="selected">
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+          </ul>
+          <h2>Future</h2>
+          <ul>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+            <li>
+              <span>Feb 8</span>Iridium 8
+            </li>
+          </ul>
         </div>
         <div className="progress">
           <div className="bar">
