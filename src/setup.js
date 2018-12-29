@@ -33,11 +33,33 @@ export const controls = new OrbitControls(camera)
 controls.enableDamping = true
 controls.rotateSpeed = 0.4
 controls.autoRotate = true
-controls.autoRotateSpeed = 0.025
-controls.dampingFactor = 0.35
+controls.autoRotateSpeed = 0.0025
+controls.dampingFactor = 0.05
 controls.enablePan = false
 controls.maxDistance = GEOSTATIONARY_RADIUS * 2
 controls.minDistance = GEOSTATIONARY_RADIUS / 2
+controls.enableZoom = false
+window.addEventListener('mousedown', function(event) {
+  controls.dampingFactor = 0.35
+})
+window.addEventListener('mouseup', function(event) {
+  controls.dampingFactor = 0.05
+})
+window.addEventListener('wheel', function(event) {
+  const offCanvas = event.target.tagName !== 'CANVAS'
+  const offVoidSpace = !event.target.className.split(' ').includes('Mission')
+  if (offCanvas && offVoidSpace) {
+    return
+  }
+
+  const phi = controls.getAzimuthalAngle()
+  const theta = controls.getPolarAngle()
+
+  const delta = event.deltaY
+  const dist = Math.sqrt(camera.position.x ** 2 + camera.position.y ** 2 + camera.position.z ** 2)
+  camera.position.setFromSphericalCoords(dist + delta / 10, theta, phi)
+  controls.update()
+})
 
 // For fixing aspect ratio after resizing
 function resizeCanvas() {
@@ -73,7 +95,6 @@ function animate() {
 
   if (fhMesh) {
     const dist = Math.sqrt(camera.position.x ** 2 + camera.position.y ** 2 + camera.position.z ** 2)
-
     const scale = dist ** 0.9 / (controls.maxDistance - controls.minDistance) / 60
     fhMesh.scale.set(scale, scale, scale)
   }
