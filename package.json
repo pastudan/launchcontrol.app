@@ -30,7 +30,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "http://pastudan.github.io/spacex-tracker",
+  "homepage": "https://launchcontrol.app",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }

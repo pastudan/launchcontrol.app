@@ -39,12 +39,8 @@ controls.enablePan = false
 controls.maxDistance = GEOSTATIONARY_RADIUS * 2
 controls.minDistance = GEOSTATIONARY_RADIUS / 2
 controls.enableZoom = false
-window.addEventListener('mousedown', function(event) {
-  controls.dampingFactor = 0.35
-})
-window.addEventListener('mouseup', function(event) {
-  controls.dampingFactor = 0.05
-})
+window.addEventListener('mousedown', () => (controls.dampingFactor = 0.35))
+window.addEventListener('mouseup', () => (controls.dampingFactor = 0.05))
 window.addEventListener('wheel', function(event) {
   const offCanvas = event.target.tagName !== 'CANVAS'
   const offVoidSpace = !event.target.className.split(' ').includes('Mission')
