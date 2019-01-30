@@ -34,17 +34,5 @@
   "homepage": "https://launchcontrol.app",
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  },
-  "deploy-node-app": {
-    "production": {
-      "env": "production",
-      "port": 3000,
-      "protocol": "http",
-      "entrypoint": "api/index.js",
-      "context": "kubesail-pastudan",
-      "registry": "index.docker.io/v1/",
-      "registryUsername": "pastudan",
-      "confirmRegistry": true
-    }
   }
 }
