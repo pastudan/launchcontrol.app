@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import YouTube from 'react-youtube'
+
 import './Mission.css'
 
 const missionTime = 240
@@ -24,9 +26,18 @@ class Mission extends Component {
     const { missionName, phases, elapsedTime, selectorOpen } = this.state
 
     const progressWidth = (elapsedTime / missionTime) * 100 + '%'
+    const ytOpts = {
+      height: '225',
+      width: '400',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    }
 
     return (
       <div className={`Mission ${selectorOpen ? 'selector-open' : ''}`}>
+        <YouTube className="video" videoId="wbSwFU6tY1c" opts={ytOpts} onReady={this._onReady} />
         <div className="current" onClick={() => this.setState({ selectorOpen: !selectorOpen })}>
           <div className="change">change mission</div>
           <h1>{missionName}</h1>

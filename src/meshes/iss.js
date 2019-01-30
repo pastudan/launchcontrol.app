@@ -37,6 +37,7 @@ socket.on('update', ([latitude, longitude]) => {
 
     const curve = new THREE.CatmullRomCurve3(cartesianHistory)
     const points = curve.getPoints(500)
+    console.log('points', points)
     issPathGeometry.setFromPoints(points)
     issPathGeometry.attributes.position.needsUpdate = true
     issMesh.lookAt(0, 0, 0)
