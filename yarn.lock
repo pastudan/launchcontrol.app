@@ -7057,9 +7057,9 @@ react-scripts@2.1.1:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-youtube@^7.8.0:
-  version "7.8.0"
-  resolved "https://registry.npmjs.org/react-youtube/-/react-youtube-7.8.0.tgz#f782995cc5bad1c0378e3669359aa786acba2d31"
+react-youtube@^7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.9.0.tgz#cf513c253581e1e45aa412a77d03420dfd7f7ba7"
   dependencies:
     fast-deep-equal "^2.0.1"
     prop-types "^15.5.3"
