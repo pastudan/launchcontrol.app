@@ -30,5 +30,3 @@ function poll() {
 
 poll()
 setInterval(poll, 3000)
-
-//TODO use https://github.com/shahar603/SpaceXtract to get live telemetry data and feed via websockets
