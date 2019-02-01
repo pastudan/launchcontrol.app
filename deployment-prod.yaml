@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spaceapi-prod
+spec:
+  selector:
+    matchLabels:
+      app: spaceapi-prod
+      env: prod
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spaceapi-prod
+        env: prod
+    spec:
+      volumes: []
+      containers:
+        - name: spaceapi-prod
+          image: 'pastudan/spaceapi:prod'
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            requests:
+              cpu: 1m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
