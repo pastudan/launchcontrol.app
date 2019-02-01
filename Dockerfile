@@ -1,16 +1,17 @@
-FROM node:10-alpine
 
-WORKDIR /app
+        FROM node:alpine
 
-COPY package.json yarn.lock api/index.js ./
+        WORKDIR /app
 
-RUN yarn install --production && \
-    yarn cache clean && \
-    rm -rf /var/cache/* /tmp/* /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/yarn && \
-    adduser -S nodejs && \
-    chown -R nodejs /app && \
-    chown -R nodejs /home/nodejs
+        ENV NODE_ENV="production"
 
-USER nodejs
+        COPY package.json yarn.loc[k] package-lock.jso[n] /app/
 
-CMD ["node", "index.js"]
+        RUN           # apk add build-base make gcc g++ linux-headers python-dev libc-dev libc6-compat &&           yarn install --no-cache --production &&           adduser -S nodejs &&           chown -R nodejs /app &&           chown -R nodejs /home/nodejs
+
+        COPY . /app/
+
+        USER nodejs
+
+        CMD ["node", "api/index.js"]
+      
