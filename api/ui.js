@@ -3,6 +3,7 @@ const MAPBOX_PUBLIC_TOKEN =
 
 module.exports = function(history) {
   history = history.map(point => [parseFloat(point[1]), parseFloat(point[0])])
+  const current = history[history.length - 1]
 
   const geoJSON = encodeURIComponent(
     JSON.stringify({
@@ -21,14 +22,12 @@ module.exports = function(history) {
           properties: {},
           geometry: {
             type: 'Point',
-            coordinates: history[history.length - 1]
+            coordinates: current
           }
         }
       ]
     })
   )
-
-  console.log(history)
 
   return `
     <!DOCTYPE html>
@@ -41,7 +40,9 @@ module.exports = function(history) {
 
         <body>
             <h1>Space Station Tracker</h1>
-            <img src="https://api.mapbox.com/styles/v1/mapbox/light-v9/static/geojson(${geoJSON})/1,1,1,0,0/1000x500?access_token=${MAPBOX_PUBLIC_TOKEN}">
+            <img src="https://api.mapbox.com/styles/v1/mapbox/light-v9/static/geojson(${geoJSON})/${
+    current[0]
+  },${current[1]},2,0,0/1000x500?access_token=${MAPBOX_PUBLIC_TOKEN}">
         </body>
 
     </html>
